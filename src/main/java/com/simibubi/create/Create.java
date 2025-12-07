@@ -108,6 +108,8 @@ public class Create {
 
 	public static void onCtor() {
 		LOGGER.info("{} {} initializing! Commit hash: {}", NAME, CreateBuildInfo.VERSION, CreateBuildInfo.GIT_COMMIT);
+		LOGGER.info("This is an modified version of Create made by Vercte to move fixes for #9459 to Create 6.0.8.");
+		LOGGER.info("THIS MAKES IT NOT OFFICIAL, of course, and this should be regarded to any log-consumers.");
 
 		ModLoadingContext modLoadingContext = ModLoadingContext.get();
 
