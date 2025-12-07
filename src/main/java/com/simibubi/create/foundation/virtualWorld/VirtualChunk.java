@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.chunk.ChunkStatus;
+import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.chunk.UpgradeData;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -33,7 +34,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.ticks.BlackholeTickAccess;
 import net.minecraft.world.ticks.TickContainerAccess;
 
-public class VirtualChunk extends ChunkAccess {
+public class VirtualChunk extends LevelChunk {
 	public final VirtualRenderWorld world;
 
 	private final VirtualChunkSection[] sections;
@@ -41,8 +42,7 @@ public class VirtualChunk extends ChunkAccess {
 	private boolean needsLight;
 
 	public VirtualChunk(VirtualRenderWorld world, int x, int z) {
-		super(new ChunkPos(x, z), UpgradeData.EMPTY, world, world.registryAccess()
-			.registryOrThrow(Registries.BIOME), 0L, null, null);
+		super(world, new ChunkPos(x, z));
 
 		this.world = world;
 
